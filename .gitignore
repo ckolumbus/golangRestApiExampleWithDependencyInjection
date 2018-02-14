@@ -1,3 +1,4 @@
 *.sqlite
 debug.test
 .vscode/
+coverage*.out
