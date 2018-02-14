@@ -17,12 +17,17 @@ GO REST API service
 within your `$GOPATH/src`
 
 ```
-git clone https://github.com/ckolumbus/golangRestApiExampleWithDependencyInjection.git
-cd golangRestApiExampleWithDependencyInjection
+git clone https://github.com/ckolumbus/golangRestApiExampleWithDependencyInjection.git $GOPATH/src/github.com/ckolumbus/golangRestApiExampleWithDependencyInjection
+cd $GOPATH/src/github.com/ckolumbus/golangRestApiExampleWithDependencyInjection
 go get -t ./...
 sqlite3 db.sqlite < db/schema.sql
 go run main.go
 ```
+
+## How to run Tests
+
+1. update mocks (?) 
+2. run tests with `go test -v ./...`
 
 # Todo
 
@@ -30,6 +35,7 @@ go run main.go
 - [ ] integrate mock framework
 - [ ] integrate initial db/schema creation 
 - [ ] investigate possible use of an ORM
+- [ ] investigate seperattion of tests (e.g. controller) into own package and/or directory
 
 
 ## References
@@ -83,3 +89,6 @@ TODO: search for best practices, maybe seperate test from production code
  * https://github.com/kyawmyintthein/golangRestfulAPISample
  * https://github.com/emicklei/go-restful/blob/master/examples
 
+## JSON handling
+
+* [how to de-/serialze json with correct quoting]](http://goinbigdata.com/how-to-correctly-serialize-json-string-in-golang/)
