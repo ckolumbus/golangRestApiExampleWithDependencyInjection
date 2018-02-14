@@ -68,12 +68,12 @@ func Vendor() error {
 }
 
 // Build binary
-func Service() error {
+func Build() error {
 	return sh.RunWith(flagEnv(), goexe, "build", "-ldflags", ldflags, packageName)
 }
 
 // Build binary with race detector enabled
-func ServiceRace() error {
+func BuildRace() error {
 	return sh.RunWith(flagEnv(), goexe, "build", "-race", "-ldflags", ldflags, packageName)
 }
 
@@ -92,9 +92,9 @@ func flagEnv() map[string]string {
 }
 
 // Build Service without git info
-func ServiceNoGitInfo() error {
+func BuildNoGitInfo() error {
 	ldflags = noGitLdflags
-	return Service()
+	return Build()
 }
 
 // Run tests and linters
