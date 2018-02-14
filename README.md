@@ -11,6 +11,7 @@ GO REST API service
 * using [echo](https://echo.labstack.com/) as web api framework
 * no DI framwork, manual injection
 * [gomock][gomock] with mockgen as mocking framework
+* test/coverage report (and much more) integrated via build script
 
 ## How to Build
 
