@@ -61,7 +61,7 @@ func (ec *EmployeeController) GetEmployee(c echo.Context) error {
 	fmt.Println(requestedID)
 	response, err := ec.EmployeePersist.Get(requestedID)
 	if err != nil {
-		return err
+		return echo.NewHTTPError(http.StatusBadRequest, fmt.Sprintf("ID '%s' not found", requestedID))
 	}
 
 	return c.JSON(http.StatusOK, response)
