@@ -19,6 +19,7 @@ import (
 	_ "github.com/mattn/go-sqlite3"
 )
 
+// SetupDB creates the connection to give sqlite3 database
 func SetupDB(dbName string) *sql.DB {
 	var err error
 	db, err := sql.Open("sqlite3", dbName)
