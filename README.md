@@ -14,23 +14,73 @@ GO REST API service
 
 ## How to Build
 
-within your `$GOPATH/src`
+set your `$GOPATH` (applies to unixoid OS', for windows replace all 
+`$ENVVARNAME` whith `%ENVVARNAME%` )
+
+get and build project plus build & test dependencies
 
 ```
-git clone https://github.com/ckolumbus/golangRestApiExampleWithDependencyInjection.git $GOPATH/src/github.com/ckolumbus/golangRestApiExampleWithDependencyInjection
-cd $GOPATH/src/github.com/ckolumbus/golangRestApiExampleWithDependencyInjection
-go get -t ./...
-sqlite3 db.sqlite < db/schema.sql
-go run main.go
+go get -t -v github.com/ckolumbus/golangRestApiExampleWithDependencyInjection
 ```
 
 ## How to run Tests
 
-1. update mocks (?) 
-2. run tests with `go test -v ./...`
+```
+go test -v github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/...
+```
 
-# Todo
+## How to Run 
 
+setup database and run application. Prerquisite: installed `sqlite3` command
+
+```
+cd $GOPATH/bin
+sqlite3 db.sqlite < $GOPATH/src/github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/db/schema.sql
+./golangRestApiExampleWithDependencyInjection
+```
+
+## Using MAGE
+
+[`mage`](https://github.com/magefile/mage) is a go based task runner which implements
+an internal DSL define tasks and dependencies.
+
+Install mage by running
+
+```
+go get -u -d github.com/magefile/mage
+cd $GOPATH/src/github.com/magefile/mage
+go run bootstrap.go
+```
+
+After this you can get a list of possbile targets with
+
+```
+cd $GOPATH/src/github.com/ckolumbus/golangRestApiExampleWithDependencyInjection
+$GOPATH/bin/mage
+```
+
+Output
+```
+Targets:
+  check               Run tests and linters
+  checkVendor         verifies that vendored packages match git HEAD
+  fmt                 Run gofmt linter
+  install             binary
+  lint                Run golint linter
+  service             Build binary
+  serviceNoGitInfo    Build Service without git info
+  serviceRace         Build binary with race detector enabled
+  test                Run tests
+  test386             Run tests in 32-bit mode
+  testCoverHTML       Generate test coverage report
+  testRace            Run tests with race detector
+  vendor              Install Go Dep and sync vendored dependencies
+  vet                 Run go vet linter
+```
+
+# Todos
+
+- [*] create build script
 - [ ] improve documentation
 - [ ] integrate mock framework
 - [ ] integrate initial db/schema creation 
@@ -91,4 +141,25 @@ TODO: search for best practices, maybe seperate test from production code
 
 ## JSON handling
 
-* [how to de-/serialze json with correct quoting]](http://goinbigdata.com/how-to-correctly-serialize-json-string-in-golang/)
+* [how to de-/serialze json with correct quoting](http://goinbigdata.com/how-to-correctly-serialize-json-string-in-golang/)
+
+## Task runner
+
+The goal was to have a `go` based task runner to stay whitin one technology, my personal
+preference goes towards internal DSL, i.e. the task description is a go file itself.
+
+There is quite a number of task runners fo `go`, most are [yaml](http://yaml.org/) based, 
+some are `go` based.
+
+### YAML
+
+  - [task](https://github.com/go-task/task)
+  - [myke](https://github.com/goeuro/myke)
+  - [zeus](https://github.com/dreadl0ck/zeus)
+  - [tusk](https://github.com/rliebz/tusk)
+
+### GO
+
+  - [grift](https://github.com/markbates/grift)
+  - [mage](https://github.com/magefile/mage)
+
