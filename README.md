@@ -80,7 +80,7 @@ Targets:
 
 # Todos
 
-- [*] create build script
+- [X] create build script
 - [ ] improve documentation
 - [ ] integrate mock framework
 - [ ] integrate initial db/schema creation 
