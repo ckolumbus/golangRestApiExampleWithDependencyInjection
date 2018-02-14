@@ -10,7 +10,7 @@ GO REST API service
 * using dependency injection for each layer for testability
 * using [echo](https://echo.labstack.com/) as web api framework
 * no DI framwork, manual injection
-* no mock framework (yet)
+* [gomock][gomock] with mockgen as mocking framework
 
 ## How to Build
 
@@ -165,3 +165,5 @@ some are `go` based.
   - [grift](https://github.com/markbates/grift)
   - [mage](https://github.com/magefile/mage) 
 
+
+[gomock]: https://github.com/golang/mock
