@@ -1,0 +1,1 @@
+CREATE TABLE "employees" ( `id` INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, `name` TEXT, `salary` TEXT, `age` TEXT )
