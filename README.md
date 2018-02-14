@@ -82,10 +82,11 @@ Targets:
 
 - [x] create build script
 - [ ] improve documentation
-- [ ] integrate mock framework
+- [x] integrate mock framework
 - [ ] integrate initial db/schema creation 
 - [ ] investigate possible use of an ORM
-- [ ] investigate seperattion of tests (e.g. controller) into own package and/or directory
+- [ ] investigate seperation of tests (e.g. controller) into own package and/or directory
+- [ ] add mock generation to build script (example: `$GOPATH/bin/mockgen -source persistence/IPersistEmployee.go -destination controllers/PersistEmployeeMock_test.go -package controllers`)
 
 
 ## References
