@@ -16,10 +16,13 @@ import (
 	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/controllers"
 	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/db"
 	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/persistence"
+
+	// sqlite3
+	_ "github.com/mattn/go-sqlite3"
 )
 
 func main() {
-	conn := db.SetupDB("./db.sqlite")
+	conn := db.SetupDB("sqlite3", "./db.sqlite")
 	defer conn.Close()
 
 	e := echo.New()

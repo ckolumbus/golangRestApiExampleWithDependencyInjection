@@ -14,15 +14,12 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-
-	// sqlite3
-	_ "github.com/mattn/go-sqlite3"
 )
 
 // SetupDB creates the connection to give sqlite3 database
-func SetupDB(dbName string) *sql.DB {
+func SetupDB(dbType string, dbConnectString string) *sql.DB {
 	var err error
-	db, err := sql.Open("sqlite3", dbName)
+	db, err := sql.Open(dbType, dbConnectString)
 	if err != nil {
 		log.Fatal(err)
 	}
