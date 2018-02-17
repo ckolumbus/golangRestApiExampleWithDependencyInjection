@@ -72,7 +72,7 @@ func (ep *EmployeePersist) Get(requestedID string) (*dto.Employee, error) {
 	var salary string
 	var age string
 
-	err = ep.Db.QueryRow("SELECT id, name, age, salary FROM employees WHERE id = ?", requestedID).Scan(&id, &name, &salary, &age)
+	err = ep.Db.QueryRow("SELECT id, name, age, salary FROM employees WHERE id = ?", requestedID).Scan(&id, &name, &age, &salary)
 
 	if err != nil {
 		fmt.Println(err)
