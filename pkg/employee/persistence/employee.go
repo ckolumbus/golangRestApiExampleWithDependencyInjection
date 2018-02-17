@@ -84,13 +84,13 @@ func (ep *EmployeePersist) Get(requestedID string) (*dto.Employee, error) {
 	return &emp, nil
 }
 
-func (ep *EmployeePersist) GetAll() ([]dto.Employee, error) {
+func (ep *EmployeePersist) GetAll() (dto.Employees, error) {
 	var (
 		name    string
 		id      string
 		salary  string
 		age     string
-		empList []dto.Employee
+		empList dto.Employees
 	)
 
 	// http://go-database-sql.org/retrieving.html
@@ -105,7 +105,7 @@ func (ep *EmployeePersist) GetAll() ([]dto.Employee, error) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		empList = append(empList, dto.Employee{ID: id, Name: name, Salary: salary, Age: age})
+		empList.Employees = append(empList.Employees, dto.Employee{ID: id, Name: name, Salary: salary, Age: age})
 	}
 	err = rows.Err()
 	if err != nil {
