@@ -10,7 +10,7 @@
 
 // adopted from : https://echo.labstack.com/guide/testing
 
-package controllers
+package controller
 
 import (
 	"encoding/json"

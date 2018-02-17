@@ -8,7 +8,7 @@
  * MIT License : http://www.opensource.org/licenses/MIT
  */
 
-package controllers
+package controller
 
 import (
 	"fmt"

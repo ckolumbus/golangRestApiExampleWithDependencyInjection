@@ -28,7 +28,7 @@ func main() {
 	e := echo.New()
 
 	employeePersist := persistence.NewEmployeePersist(conn)
-	employeeController := controllers.NewEmployeeController(employeePersist)
+	employeeController := controller.NewEmployeeController(employeePersist)
 
 	e.POST("/employee", employeeController.CreateEmployee)
 	e.DELETE("/employee/:id", employeeController.DeleteEmployee)
