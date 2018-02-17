@@ -43,7 +43,7 @@ cd $GOPATH/bin
 
 ## Using MAGE
 
-[`mage`](https://github.com/magefile/mage) is a go based task runner which implements
+[`mage`][mage] is a go based task runner which implements
 an internal DSL define tasks and dependencies.
 
 Install mage by running
@@ -84,14 +84,15 @@ Targets:
 
 # Todos
 
-- [x] create build script
+- [x] create build script: use [`mage`][mage]
 - [ ] improve documentation
-- [x] integrate mock framework
+- [x] integrate mock framework : use [gmock][gomock]
 - [x] integrate initial db/schema creation 
 - [ ] investigate possible use of an ORM
 - [x] ~~investigate seperation of tests (e.g. controller) into own package and/or directory~~ 
       according to all best practices on the net this seperation should not be done
-- [ ] add mock generation to build script (example: `$GOPATH/bin/mockgen -source persistence/IPersistEmployee.go -destination controllers/PersistEmployeeMock_test.go -package controllers`)
+- [ ] add mock generation to build script (example: `$GOPATH/bin/mockgen -source pkg/employee/persistence/IPersistEmployee.go -destination controllers/PersistEmployeeMock_test.go -package controllers`)
+- [ ] logging concept
 
 
 ## References
@@ -169,7 +170,8 @@ some are `go` based.
 ### GO
 
   - [grift](https://github.com/markbates/grift)
-  - [mage](https://github.com/magefile/mage) 
+  - [mage][mage]
 
 
 [gomock]: https://github.com/golang/mock
+[mage]: https://github.com/magefile/mage
