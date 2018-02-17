@@ -22,6 +22,7 @@ func SetupDB(dbType string, dbConnectString string) *sql.DB {
 	db, err := sql.Open(dbType, dbConnectString)
 	if err != nil {
 		log.Fatal(err)
+		panic(err)
 	}
 	//defer db.Close()
 
@@ -30,5 +31,21 @@ func SetupDB(dbType string, dbConnectString string) *sql.DB {
 	} else {
 		fmt.Println("DB Connected...")
 	}
+
+	statement, errPrepare := db.Prepare("CREATE TABLE IF NOT EXISTS employees ( id INTEGER PRIMARY KEY AUTOINCREMENT UNIQUE, name TEXT, salary TEXT, age TEXT )")
+	defer statement.Close()
+
+	if errPrepare != nil {
+		log.Fatal(err)
+		panic(err)
+	}
+
+	_, errResult := statement.Exec()
+	if errResult != nil {
+		log.Fatal(err)
+		panic(err)
+	}
+	fmt.Println("Schema created...")
+
 	return db
 }
