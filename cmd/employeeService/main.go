@@ -33,6 +33,7 @@ func main() {
 	e.POST("/employee", employeeController.CreateEmployee)
 	e.DELETE("/employee/:id", employeeController.DeleteEmployee)
 	e.GET("/employee/:id", employeeController.GetEmployee)
+	e.GET("/employee", employeeController.GetAllEmployees)
 
 	e.Logger.Fatal(e.Start(":8080"))
 }

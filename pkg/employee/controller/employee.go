@@ -70,3 +70,13 @@ func (ec *EmployeeController) GetEmployee(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, response)
 }
+
+// GetEmployees GET  all employees
+func (ec *EmployeeController) GetAllEmployees(c echo.Context) error {
+	response, err := ec.EmployeePersist.GetAll()
+	if err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, fmt.Sprintf("Error requesting all employees"))
+	}
+
+	return c.JSON(http.StatusOK, response)
+}

@@ -19,4 +19,5 @@ type IEmployeePersist interface {
 	Save(*dto.Employee) (string, error)
 	Delete(string) (string, error)
 	Get(string) (*dto.Employee, error)
+	GetAll() ([]dto.Employee, error)
 }

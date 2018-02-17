@@ -13,6 +13,7 @@ package persistence
 import (
 	"database/sql"
 	"fmt"
+	"log"
 
 	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/pkg/employee/dto"
 )
@@ -81,4 +82,35 @@ func (ep *EmployeePersist) Get(requestedID string) (*dto.Employee, error) {
 
 	emp := dto.Employee{ID: id, Name: name, Salary: salary, Age: age}
 	return &emp, nil
+}
+
+func (ep *EmployeePersist) GetAll() ([]dto.Employee, error) {
+	var (
+		name    string
+		id      string
+		salary  string
+		age     string
+		empList []dto.Employee
+	)
+
+	// http://go-database-sql.org/retrieving.html
+	rows, err := ep.Db.Query("SELECT id, name, age, salary FROM employees")
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		err := rows.Scan(&id, &name, &age, &salary)
+		if err != nil {
+			log.Fatal(err)
+		}
+		empList = append(empList, dto.Employee{ID: id, Name: name, Salary: salary, Age: age})
+	}
+	err = rows.Err()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return empList, nil
 }
