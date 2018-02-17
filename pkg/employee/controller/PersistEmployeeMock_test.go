@@ -5,9 +5,10 @@
 package controllers
 
 import (
-	dto "github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/dto"
-	gomock "github.com/golang/mock/gomock"
 	reflect "reflect"
+
+	dto "github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/pkg/employee/dto"
+	gomock "github.com/golang/mock/gomock"
 )
 
 // MockIEmployeePersist is a mock of IEmployeePersist interface

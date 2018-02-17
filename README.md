@@ -12,6 +12,8 @@ GO REST API service
 * no DI framwork, manual injection
 * [gomock][gomock] with mockgen as mocking framework
 * test/coverage report (and much more) integrated via build script
+* use DATA-DOG/go-sqlmock for persistence tests
+* code structure according to [thockin/go-build-template](https://github.com/thockin/go-build-template)
 
 ## How to Build
 
@@ -32,11 +34,10 @@ go test -v github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/...
 
 ## How to Run 
 
-setup database and run application. Prerquisite: installed `sqlite3` command
+No special setup needed, database and schema are created automatcially in `./db.sqlite`
 
 ```
 cd $GOPATH/bin
-sqlite3 db.sqlite < $GOPATH/src/github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/db/schema.sql
 ./golangRestApiExampleWithDependencyInjection
 ```
 
@@ -58,6 +59,8 @@ After this you can get a list of possbile targets with
 ```
 cd $GOPATH/src/github.com/ckolumbus/golangRestApiExampleWithDependencyInjection
 $GOPATH/bin/mage
+$GOPATH/bin/mage -v check
+$GOPATH/bin/mage -v install
 ```
 
 Output
@@ -84,9 +87,10 @@ Targets:
 - [x] create build script
 - [ ] improve documentation
 - [x] integrate mock framework
-- [ ] integrate initial db/schema creation 
+- [x] integrate initial db/schema creation 
 - [ ] investigate possible use of an ORM
-- [ ] investigate seperation of tests (e.g. controller) into own package and/or directory
+- [x] ~~investigate seperation of tests (e.g. controller) into own package and/or directory~~ 
+      according to all best practices on the net this seperation should not be done
 - [ ] add mock generation to build script (example: `$GOPATH/bin/mockgen -source persistence/IPersistEmployee.go -destination controllers/PersistEmployeeMock_test.go -package controllers`)
 
 

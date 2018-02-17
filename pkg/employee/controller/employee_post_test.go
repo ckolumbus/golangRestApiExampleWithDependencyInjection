@@ -19,7 +19,7 @@ import (
 	"strings"
 	"testing"
 
-	dto "github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/dto"
+	dto "github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/pkg/employee/dto"
 	gomock "github.com/golang/mock/gomock"
 	"github.com/labstack/echo"
 	"github.com/stretchr/testify/assert"

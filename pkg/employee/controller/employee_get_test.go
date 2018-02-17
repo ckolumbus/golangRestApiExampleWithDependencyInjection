@@ -19,7 +19,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/dto"
+	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/pkg/employee/dto"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/golang/mock/gomock"

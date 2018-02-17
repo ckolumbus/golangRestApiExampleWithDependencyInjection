@@ -14,7 +14,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/dto"
+	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/pkg/employee/dto"
 )
 
 type EmployeePersist struct {

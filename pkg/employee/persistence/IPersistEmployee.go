@@ -11,7 +11,7 @@
 package persistence
 
 import (
-	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/dto"
+	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/pkg/employee/dto"
 )
 
 // IPersistEmployee defines the interface to persist Employee

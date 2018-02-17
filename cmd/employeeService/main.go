@@ -13,9 +13,9 @@ package main
 import (
 	"github.com/labstack/echo"
 
-	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/controllers"
-	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/db"
-	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/persistence"
+	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/pkg/employee/controller"
+	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/pkg/employee/db"
+	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/pkg/employee/persistence"
 
 	// sqlite3
 	_ "github.com/mattn/go-sqlite3"

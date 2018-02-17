@@ -14,11 +14,10 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/dto"
-
 	"github.com/labstack/echo"
 
-	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/persistence"
+	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/pkg/employee/dto"
+	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/pkg/employee/persistence"
 )
 
 // EmployeeController handler for Employee DTO CRUD requests
