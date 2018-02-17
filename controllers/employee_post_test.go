@@ -43,7 +43,7 @@ func TestCreateEmployee(t *testing.T) {
 	rec := httptest.NewRecorder()
 
 	c := e.NewContext(req, rec)
-	h := &EmployeeController{mockEmployeePersist}
+	h := NewEmployeeController(mockEmployeePersist)
 
 	// Assertions
 	if assert.NoError(t, h.CreateEmployee(c)) {

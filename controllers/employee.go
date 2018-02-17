@@ -26,6 +26,11 @@ type EmployeeController struct {
 	EmployeePersist persistence.IEmployeePersist
 }
 
+// NewEmployeeController is the constructor
+func NewEmployeeController(employeePersist persistence.IEmployeePersist) *EmployeeController {
+	return &EmployeeController{employeePersist}
+}
+
 // CreateEmployee handles the POST endpoint for creating new employees
 func (ec *EmployeeController) CreateEmployee(c echo.Context) error {
 	emp := new(dto.Employee)

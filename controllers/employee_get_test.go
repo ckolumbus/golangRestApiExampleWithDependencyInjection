@@ -47,7 +47,7 @@ func TestGetEmployee(t *testing.T) {
 	c.SetPath("/employee/:id")
 	c.SetParamNames("id")
 	c.SetParamValues("2")
-	h := &EmployeeController{mockEmployeePersist}
+	h := NewEmployeeController(mockEmployeePersist)
 
 	// Act & Assert
 	if assert.NoError(t, h.GetEmployee(c)) {
@@ -68,7 +68,7 @@ func TestGetEmployee_(t *testing.T) {
 
 	c := e.NewContext(req, rec)
 	c.SetPath("/employee")
-	h := &EmployeeController{mockEmployeePersist}
+	h := NewEmployeeController(mockEmployeePersist)
 
 	// Assertions
 	r := h.GetEmployee(c)

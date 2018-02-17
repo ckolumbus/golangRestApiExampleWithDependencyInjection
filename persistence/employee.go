@@ -21,6 +21,10 @@ type EmployeePersist struct {
 	Db *sql.DB
 }
 
+func NewEmployeePersist(db *sql.DB) *EmployeePersist {
+	return &EmployeePersist{db}
+}
+
 func (ep *EmployeePersist) Save(emp *dto.Employee) (string, error) {
 	//
 	sql := "INSERT INTO employees(name, age, salary) VALUES( ?, ?, ?)"
