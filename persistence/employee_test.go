@@ -35,9 +35,8 @@ func TestShouldUpdateStats(t *testing.T) {
 		WithArgs(queryID).
 		WillReturnRows(rows)
 
-	persist := NewEmployeePersist(db)
-
 	// ACT
+	persist := NewEmployeePersist(db)
 	employee, errGet := persist.Get(queryID)
 
 	// ASSERT
