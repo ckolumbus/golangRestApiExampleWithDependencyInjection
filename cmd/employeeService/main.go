@@ -1,9 +1,9 @@
 /**
  * File: main.go
  * Created Date: Tuesday February 13th 2018
- * Author: Chris Drexler, ckolumbus@ac-drexler.de
+ * Author: Chris Drexler <ckolumbus@ac-drexler.de>
  * -----
- * Copyright (c) 2018 Chris Drexler
+ * Copyright (c) 2018 Chris Drexler <ckolumbus@ac-drexler.de>
  *
  * Licensed under the Apache License, Version 2.0 (the "LICENSE");
  * you may not use this file except in compliance with the License.
@@ -21,6 +21,7 @@
 package main
 
 import (
+	"github.com/karlkfi/inject"
 	"github.com/labstack/echo"
 
 	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/pkg/employee/controller"
@@ -32,13 +33,20 @@ import (
 )
 
 func main() {
+	var (
+		employeePersist    persistence.IEmployeePersist
+		employeeController *controller.EmployeeController
+	)
 	conn := db.SetupDB("sqlite3", "./db.sqlite")
 	defer conn.Close()
 
 	e := echo.New()
 
-	employeePersist := persistence.NewEmployeePersist(conn)
-	employeeController := controller.NewEmployeeController(employeePersist)
+	graph := inject.NewGraph(
+		inject.NewDefinition(&employeePersist, inject.NewProvider(persistence.NewEmployeePersist, &conn)),
+		inject.NewDefinition(&employeeController, inject.NewAutoProvider(controller.NewEmployeeController)),
+	)
+	graph.Resolve(&employeeController)
 
 	e.POST("/employee", employeeController.CreateEmployee)
 	e.DELETE("/employee/:id", employeeController.DeleteEmployee)
