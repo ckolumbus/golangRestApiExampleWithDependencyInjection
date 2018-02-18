@@ -1,5 +1,5 @@
 /**
- * File: employee.go
+ * File: IPersistEmployee.go
  * Created Date: Sunday February 13th 2018
  * Author: Chris Drexler, ckolumbus@ac-drexler.de
  * -----
@@ -18,17 +18,16 @@
  * limitations under the License.
  */
 
-package dto
+package persistence
 
-// Employee definition
-type Employee struct {
-	ID     string `json:"id"`
-	Name   string `json:"name"`
-	Salary string `json:"salary"`
-	Age    string `json:"age"`
-}
+import (
+	"github.com/ckolumbus/golangRestApiExampleWithDependencyInjection/pkg/employee/dto"
+)
 
-// Employees list of Employees
-type Employees struct {
-	Employees []Employee `json:"employees"`
+// IEmployeePersist defines the interface to persist Employee
+type IEmployeePersist interface {
+	Save(*dto.Employee) (string, error)
+	Delete(string) (string, error)
+	Get(string) (*dto.Employee, error)
+	GetAll() (dto.Employees, error)
 }

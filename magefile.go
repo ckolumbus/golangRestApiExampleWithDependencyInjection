@@ -1,5 +1,15 @@
 // +build mage
 
+/**
+ * File: magefile.go
+ * Created Date: Wednesday February 14th 2018
+ * Author: Chris Drexler, ckolumbus@ac-drexler.de
+ * -----
+ * Copyright (c) 2018 Chris Drexler
+ *
+ * Apache License 2.0 : http://www.apache.org/licenses/LICENSE-2.0
+ */
+
 /*
    This file is derived from
 	   * https://github.com/gohugoio/hugo/blob/master/magefile.go
@@ -24,6 +34,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 */
+
 package main
 
 import (

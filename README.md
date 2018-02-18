@@ -93,6 +93,7 @@ Targets:
       according to all best practices on the net this seperation should not be done
 - [ ] add mock generation to build script (example: `$GOPATH/bin/mockgen -source pkg/employee/persistence/IPersistEmployee.go -destination controllers/PersistEmployeeMock_test.go -package controllers`)
 - [ ] logging concept
+- [ ] handling arrays: use elments with or without "*"?
 
 
 ## References
@@ -110,13 +111,15 @@ c.f. [code guidlines](https://golang.org/doc/code.html)
 * https://github.com/Microsoft/vscode-go/wiki/GOPATH-in-the-VS-Code-Go-extension#gopath-from-goinfergopath-setting
 
 
-### Dependency handling
+### Handling of external Dependency 
 
 Install all dependencies,  `-t` includes test dependencies
 
 ```go get -t ./...```
 
 * https://coderwall.com/p/arxtja/install-all-go-project-dependencies-in-one-command
+
+
 
 ### Build
 
@@ -131,6 +134,16 @@ TODO: search for best practices, maybe seperate test from production code
 
 * https://golang.org/pkg/testing/
 * https://golang.org/pkg/testing/#hdr-Subtests_and_Sub_benchmarks
+
+### Dependency Injection / Inversion of Control
+
+* [karlkfi/inject][karlkfi/inject]
+  **NO** change whatsover on existing code when doing ctor injection already
+* [facebookgo/inject][facebookgo/inject]
+  most references one, but IMHO quite some ceremony needed
+* [magic003/alice][magic003/alice]
+  somewhat in between the two above
+
 
 #### Mocks
 
@@ -175,3 +188,7 @@ some are `go` based.
 
 [gomock]: https://github.com/golang/mock
 [mage]: https://github.com/magefile/mage
+[karlkfi/inject]: https://github.com/karlkfi/inject
+[facebookgo/inject]: https://github.com/facebookgo/inject
+[magic003/alice]: https://github.com/magic003/alice
+ 
