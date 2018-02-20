@@ -8,11 +8,11 @@ GO REST API service
   * persistence layer
 * Data transfer object definition for domain entity data representation
 * using dependency injection for each layer for testability
+* low ceremony IoC solution for dependency injection [karlkfi/inject][karlkfi/inject]
 * using [echo](https://echo.labstack.com/) as web api framework
-* no DI framwork, manual injection
 * [gomock][gomock] with mockgen as mocking framework
 * test/coverage report (and much more) integrated via build script
-* use DATA-DOG/go-sqlmock for persistence tests
+* use [DATA-DOG/go-sqlmock][sqlmock] for persistence tests
 * code structure according to [thockin/go-build-template](https://github.com/thockin/go-build-template)
 
 ## How to Build
@@ -84,7 +84,7 @@ Targets:
 
 # Todos
 
-- [x] create build script: use [`mage`][mage]
+- [x] create build script: use [mage][mage]
 - [ ] improve documentation
 - [x] integrate mock framework : use [gmock][gomock]
 - [x] integrate initial db/schema creation 
@@ -94,6 +94,7 @@ Targets:
 - [ ] add mock generation to build script (example: `$GOPATH/bin/mockgen -source pkg/employee/persistence/IPersistEmployee.go -destination controllers/PersistEmployeeMock_test.go -package controllers`)
 - [ ] logging concept
 - [ ] handling arrays: use elments with or without "*"?
+- [ ] Vendoring with [govendor][govendor] and [vendorfmt][vendorfmt]
 
 
 ## References
@@ -191,4 +192,6 @@ some are `go` based.
 [karlkfi/inject]: https://github.com/karlkfi/inject
 [facebookgo/inject]: https://github.com/facebookgo/inject
 [magic003/alice]: https://github.com/magic003/alice
- 
+[govendor]:  https://github.com/kardianos/govendor
+[vendorfmt]: https://github.com/magiconair/vendorfmt
+[sqlmock] : https://github.com/DATA-DOG/go-sqlmock
