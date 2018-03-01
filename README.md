@@ -194,4 +194,4 @@ some are `go` based.
 [magic003/alice]: https://github.com/magic003/alice
 [govendor]:  https://github.com/kardianos/govendor
 [vendorfmt]: https://github.com/magiconair/vendorfmt
-[sqlmock] : https://github.com/DATA-DOG/go-sqlmock
+[sqlmock]: https://github.com/DATA-DOG/go-sqlmock
