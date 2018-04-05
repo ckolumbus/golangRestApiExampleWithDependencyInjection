@@ -95,6 +95,7 @@ Targets:
 - [ ] logging concept
 - [ ] handling arrays: use elments with or without "*"?
 - [ ] Vendoring with [govendor][govendor] and [vendorfmt][vendorfmt]
+- [ ] structured logging support with, possibly with [logrus][logrus]
 
 
 ## References
@@ -195,3 +196,4 @@ some are `go` based.
 [govendor]:  https://github.com/kardianos/govendor
 [vendorfmt]: https://github.com/magiconair/vendorfmt
 [sqlmock]: https://github.com/DATA-DOG/go-sqlmock
+[logrus]: https://github.com/Sirupsen/logrus
