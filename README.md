@@ -94,7 +94,7 @@ Targets:
 - [ ] add mock generation to build script (example: `$GOPATH/bin/mockgen -source pkg/employee/persistence/IPersistEmployee.go -destination controllers/PersistEmployeeMock_test.go -package controllers`)
 - [ ] logging concept
 - [ ] handling arrays: use elments with or without "*"?
-- [ ] Vendoring with [govendor][govendor] and [vendorfmt][vendorfmt]
+- [ ] Vendoring with [dep][dep] (seems to be the recommenden tool, alternatives are listed in the [Go Wiki](https://github.com/golang/go/wiki/PackageManagementTools))
 - [ ] structured logging support with, possibly with [logrus][logrus]
 
 
@@ -197,3 +197,4 @@ some are `go` based.
 [vendorfmt]: https://github.com/magiconair/vendorfmt
 [sqlmock]: https://github.com/DATA-DOG/go-sqlmock
 [logrus]: https://github.com/Sirupsen/logrus
+[dep]: https://github.com/golang/dep
